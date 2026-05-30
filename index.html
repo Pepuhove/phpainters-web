@@ -35,14 +35,8 @@ header{
     padding:20px;
 }
 
-header h1{
-    font-size:40px;
-}
-
-header p{
-    margin:10px 0;
-    font-size:18px;
-}
+header h1{ font-size:40px; }
+header p{ margin:10px 0; font-size:18px; }
 
 .btn{
     background:#ff9800;
@@ -138,6 +132,47 @@ footer{
     padding:20px;
     margin-top:40px;
 }
+
+/* FLOATING BUTTONS */
+.float-btn{
+    position:fixed;
+    width:60px;
+    height:60px;
+    right:20px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 4px 10px rgba(0,0,0,0.3);
+    z-index:1000;
+    transition:0.2s ease;
+    text-decoration:none;
+}
+
+/* WhatsApp */
+.whatsapp{
+    bottom:20px;
+    background:#25D366;
+}
+
+.whatsapp img{
+    width:35px;
+    height:35px;
+}
+
+/* Email */
+.email{
+    bottom:90px;
+    background:#ff9800;
+    color:white;
+    font-size:26px;
+    font-weight:bold;
+}
+
+/* Hover */
+.float-btn:hover{
+    transform:scale(1.15);
+}
 </style>
 </head>
 
@@ -156,8 +191,7 @@ footer{
     <h2>About Us</h2>
     <p style="text-align:center;max-width:800px;margin:auto;">
         PH Painters & Handymen Services provides professional interior painting, exterior painting,
-        waterproofing, wood varnishing and general handyman services across Cape Town.
-        We focus on quality preparation, clean finishes and long-lasting results.
+        waterproofing, wood varnishing and handyman services across Cape Town.
     </p>
 </section>
 
@@ -188,31 +222,18 @@ footer{
         <img src="images/pic8.jpeg">
         <img src="images/pic9.jpeg">
         <img src="images/pic10.jpeg">
-        <img src="images/pic11.jpeg">
-        <img src="images/pic12.jpeg">
-        <img src="images/pic13.jpeg">
-        <img src="images/pic14.jpg">
-        <img src="images/pic15.webp">
-        <img src="images/pic16.webp">
-        <img src="images/pic17.webp">
-        <img src="images/pic18.webp">
-        <img src="images/pic19.webp">
-        <img src="images/pic20.jpg">
-</div>
+    </div>
 </section>
 
 <!-- TESTIMONIALS -->
 <section>
     <h2>Customer Testimonials</h2>
 
-    <p style="text-align:center;">Leave a review about our service below.</p>
+    <p style="text-align:center;">Leave a review below.</p>
 
-    <!-- FORM -->
     <div style="max-width:600px;margin:auto;">
-
         <input id="name" type="text" placeholder="Your Name">
 
-        <!-- STAR RATING -->
         <div style="text-align:center;margin:10px 0;">
             <span onclick="setRating(1)" class="star">★</span>
             <span onclick="setRating(2)" class="star">★</span>
@@ -226,7 +247,6 @@ footer{
         <button onclick="addTestimonial()">Submit Review</button>
     </div>
 
-    <!-- REVIEWS -->
     <div id="reviews" class="testimonials"></div>
 </section>
 
@@ -237,6 +257,7 @@ footer{
         <strong>PH Painters & Handymen Services</strong><br>
         Owner: Pepu<br>
         Phone/WhatsApp: +27642919982<br>
+        Email: pepshove@gmail.com<br>
         Service Areas: Cape Town & Surroundings
     </p>
 </section>
@@ -245,6 +266,20 @@ footer{
     © 2026 PH Painters & Handymen Services
 </footer>
 
+<!-- FLOATING BUTTONS -->
+
+<!-- WhatsApp -->
+<a href="https://wa.me/27642919982?text=Hi%20PH%20Painters%2C%20I%20would%20like%20a%20quote%20please"
+class="float-btn whatsapp" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+</a>
+
+<!-- Email -->
+<a href="mailto:pepshove@gmail.com?subject=Painting%20Quote%20Request&body=Hi%20PH%20Painters%2C%20I%20would%20like%20a%20quote"
+class="float-btn email">
+    ✉
+</a>
+
 <!-- JAVASCRIPT -->
 <script>
 let currentRating = 0;
@@ -252,14 +287,8 @@ let currentRating = 0;
 function setRating(rating){
     currentRating = rating;
 
-    let stars = document.querySelectorAll(".star");
-
-    stars.forEach((star, index) => {
-        if(index < rating){
-            star.classList.add("selected");
-        } else {
-            star.classList.remove("selected");
-        }
+    document.querySelectorAll(".star").forEach((star, i) => {
+        star.classList.toggle("selected", i < rating);
     });
 }
 
@@ -270,7 +299,6 @@ function loadReviews(){
     box.innerHTML = "";
 
     data.forEach(r => {
-
         let stars = "★".repeat(r.rating) + "☆".repeat(5 - r.rating);
 
         box.innerHTML += `
@@ -287,29 +315,25 @@ function addTestimonial(){
     let message = document.getElementById("message").value;
 
     if(!name || !message){
-        alert("Please fill in all fields");
+        alert("Please fill all fields");
         return;
     }
 
     if(currentRating === 0){
-        alert("Please select a star rating");
+        alert("Please select rating");
         return;
     }
 
     let data = JSON.parse(localStorage.getItem("reviews")) || [];
 
-    data.push({
-        name: name,
-        message: message,
-        rating: currentRating
-    });
+    data.push({ name, message, rating: currentRating });
 
     localStorage.setItem("reviews", JSON.stringify(data));
 
     document.getElementById("name").value = "";
     document.getElementById("message").value = "";
-
     currentRating = 0;
+
     document.querySelectorAll(".star").forEach(s => s.classList.remove("selected"));
 
     loadReviews();
@@ -320,3 +344,5 @@ loadReviews();
 
 </body>
 </html>
+
+#
