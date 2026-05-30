@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>House Painters Cape Town | Waterproofing & Roof Painting | PH Painters</title>
+
 
 <style>
 *{
@@ -183,25 +183,123 @@ footer{
     <div style="max-width:900px;text-align:center;">
 
         <h1 style="font-size:48px;line-height:1.2;">
-            Reliable House Painters & Waterproofing Experts in Cape Town
+            <span style="color:#ff9800;">PH Painters & Handyman Services</span>
+        <br>
+            <span style="color:#ff9800;">Cape Town</span>
         </h1>
 
         <p style="font-size:20px;margin-top:15px;color:#f1f1f1;">
-            Interior Painting • Exterior Painting • Roof Painting • Roof Waterproofing • Home Repairs
+            Interior Painting • Exterior Painting • Roof Painting • Waterproofing • Wood Vanishing & Handyman Services
         </p>
 
         <p style="margin-top:15px;font-size:18px;color:#ddd;">
-            We deliver clean finishes, long-lasting waterproofing, and professional workmanship for homes & businesses.
+            Specialists in <strong>luxury homes, coastal properties, apartments & commercial buildings</strong> with clean, long-lasting finishes.
         </p>
-
-       
-       <br><br>
-        <a class="btn" href="https://wa.me/27642919982?text=Hi%20PH%20Painters%2C%20I%20need%20a%20free%20quote%20for%20painting%20or%20waterproofing">
-            🚀 Get Free Quote
-        </a>
 
     </div>
 </header>
+
+<script>
+function getData(){
+    return {
+        name: document.getElementById("name").value,
+        phone: document.getElementById("phone").value,
+        message: document.getElementById("message").value
+    };
+}
+
+function sendWhatsApp(){
+    let d = getData();
+    if(!d.name || !d.phone || !d.message){
+        alert("Please fill in all fields");
+        return;
+    }
+
+    let url = `https://wa.me/27642919982?text=
+Hi%20PH%20Painters,%0A
+My%20name:%20${d.name}%0A
+Phone:%20${d.phone}%0A
+Job:%20${d.message}`;
+
+    window.open(url, "_blank");
+}
+
+function callNow(){
+    let d = getData();
+    if(!d.phone){
+        alert("Please enter your phone number");
+        return;
+    }
+    window.location.href = "tel:+27642919982";
+}
+
+function sendEmail(){
+    let d = getData();
+    if(!d.message){
+        alert("Please enter your request");
+        return;
+    }
+
+    let subject = "Painting Quote Request - " + d.name;
+    let body = `Name: ${d.name}\nPhone: ${d.phone}\n\nMessage:\n${d.message}`;
+
+    window.location.href = `mailto:pepshove@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
+function sendSMS(){
+    let d = getData();
+    if(!d.message){
+        alert("Please enter your request");
+        return;
+    }
+
+    let smsBody = `Hi PH Painters, my name is ${d.name}. ${d.message}`;
+    window.location.href = `sms:+27642919982?body=${encodeURIComponent(smsBody)}`;
+}
+</script>
+
+<section id="quote">
+    <h2>Get a Free Quote</h2>
+
+    <p style="text-align:center;max-width:800px;margin:auto;">
+        Choose how you want us to contact you.
+    </p>
+
+    <div style="max-width:600px;margin:auto;margin-top:25px;">
+
+        <input type="text" id="name" placeholder="Your Name">
+        <input type="tel" id="phone" placeholder="Your Phone Number">
+
+        <textarea id="message" placeholder="Describe your painting or waterproofing job"></textarea>
+
+        <h3 style="text-align:center;margin-top:20px;">Preferred Contact Method</h3>
+
+        <div style="display:grid;gap:10px;margin-top:15px;">
+
+            <!-- WhatsApp -->
+            <button onclick="sendWhatsApp()" style="background:#25D366;color:white;padding:12px;border:none;border-radius:6px;">
+                📱 WhatsApp Me
+            </button>
+
+            <!-- Call -->
+            <button onclick="callNow()" style="background:#007bff;color:white;padding:12px;border:none;border-radius:6px;">
+                📞 Call Me
+            </button>
+
+            <!-- Email -->
+            <button onclick="sendEmail()" style="background:#ff9800;color:white;padding:12px;border:none;border-radius:6px;">
+                ✉ Email Me
+            </button>
+
+            <!-- SMS -->
+            <button onclick="sendSMS()" style="background:#444;color:white;padding:12px;border:none;border-radius:6px;">
+                💬 Send SMS
+            </button>
+
+        </div>
+
+    </div>
+</section>
 
 <!-- ABOUT -->
 <section>
@@ -372,6 +470,35 @@ footer{
     </div>
 
     <div id="reviews" class="testimonials"></div>
+</section>
+
+<!-- GOOGLE MAPS + SERVICE AREAS -->
+<section>
+    <h2>Trusted Painters in Sea Point, Camps Bay & Cape Town</h2>
+
+    <p style="text-align:center;max-width:900px;margin:auto;margin-bottom:25px;">
+        PH Painters & Handyman Services proudly serves premium Cape Town suburbs including
+        <strong>Sea Point, Camps Bay, Clifton, Green Point, Bantry Bay, Fresnaye, and the Atlantic Seaboard</strong>.
+        We specialise in high-quality interior painting, exterior painting, roof painting, and waterproofing for luxury homes, apartments, and commercial properties.
+    </p>
+
+    <div style="display:flex;justify-content:center;">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3309.0861!2d18.4241!3d-33.9249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc676c9f3f3a3b%3A0x2a0c7c5b0f0c0c0!2sCape%20Town!5e0!3m2!1sen!2sza!4v1710000000000"
+            width="100%"
+            height="380"
+            style="border:0;border-radius:12px;box-shadow:0 10px 25px rgba(0,0,0,0.25);"
+            allowfullscreen=""
+            loading="lazy">
+        </iframe>
+    </div>
+
+    <div style="margin-top:25px;text-align:center;">
+        <p style="font-size:16px;">
+            📍 <strong>Top Service Areas:</strong><br>
+            Sea Point • Camps Bay • Clifton • Green Point • Bantry Bay • Fresnaye • Woodstock • Observatory • Milnerton
+        </p>
+    </div>
 </section>
 
 <!-- CONTACT -->
