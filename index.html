@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PH Painters & Handymen Services</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    line-height:1.6;
+    color:#333;
+    background:#fff;
+}
+
+/* HERO */
+header{
+    background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+    url("images/pic1.jpeg");
+    background-size:cover;
+    background-position:center;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    padding:20px;
+}
+
+header h1{
+    font-size:40px;
+}
+
+header p{
+    margin:10px 0;
+    font-size:18px;
+}
+
+.btn{
+    background:#ff9800;
+    color:white;
+    padding:12px 20px;
+    margin-top:15px;
+    text-decoration:none;
+    border-radius:5px;
+}
+
+/* SECTIONS */
+section{
+    padding:60px 20px;
+    max-width:1100px;
+    margin:auto;
+}
+
+h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+/* SERVICES */
+.services{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#f4f4f4;
+    padding:20px;
+    border-radius:10px;
+}
+
+/* GALLERY */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:15px;
+}
+
+.gallery img{
+    width:100%;
+    height:170px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+/* TESTIMONIALS */
+.testimonials{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    margin-top:20px;
+}
+
+/* FORM */
+input, textarea{
+    width:100%;
+    padding:12px;
+    margin:8px 0;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+button{
+    background:#ff9800;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+/* STAR RATING */
+.star{
+    font-size:28px;
+    cursor:pointer;
+    color:#ccc;
+    transition:0.2s;
+}
+
+.star.selected{
+    color:#ff9800;
+}
+
+/* FOOTER */
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<header>
+    <h1>PH Painters & Handymen Services</h1>
+    <p>Professional Painting & Home Maintenance in Cape Town</p>
+    <p><strong>Call/WhatsApp: +27642919982</strong></p>
+    <a class="btn" href="#contact">Get a Free Quote</a>
+</header>
+
+<!-- ABOUT -->
+<section>
+    <h2>About Us</h2>
+    <p style="text-align:center;max-width:800px;margin:auto;">
+        PH Painters & Handymen Services provides professional interior painting, exterior painting,
+        waterproofing, wood varnishing and general handyman services across Cape Town.
+        We focus on quality preparation, clean finishes and long-lasting results.
+    </p>
+</section>
+
+<!-- SERVICES -->
+<section>
+    <h2>Our Services</h2>
+    <div class="services">
+        <div class="card">Interior Painting</div>
+        <div class="card">Exterior Painting</div>
+        <div class="card">Roof Painting</div>
+        <div class="card">Waterproofing</div>
+        <div class="card">Wood Varnishing</div>
+        <div class="card">Handyman Repairs</div>
+    </div>
+</section>
+
+<!-- GALLERY -->
+<section>
+    <h2>Our Work Gallery</h2>
+    <div class="gallery">
+        <img src="images/pic1.jpeg">
+        <img src="images/pic2.jpeg">
+        <img src="images/pic3.jpeg">
+        <img src="images/pic4.jpeg">
+        <img src="images/pic5.jpeg">
+        <img src="images/pic6.jpeg">
+        <img src="images/pic7.jpeg">
+        <img src="images/pic8.jpeg">
+        <img src="images/pic9.jpeg">
+        <img src="images/pic10.jpeg">
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section>
+    <h2>Customer Testimonials</h2>
+
+    <p style="text-align:center;">Leave a review about our service below.</p>
+
+    <!-- FORM -->
+    <div style="max-width:600px;margin:auto;">
+
+        <input id="name" type="text" placeholder="Your Name">
+
+        <!-- STAR RATING -->
+        <div style="text-align:center;margin:10px 0;">
+            <span onclick="setRating(1)" class="star">★</span>
+            <span onclick="setRating(2)" class="star">★</span>
+            <span onclick="setRating(3)" class="star">★</span>
+            <span onclick="setRating(4)" class="star">★</span>
+            <span onclick="setRating(5)" class="star">★</span>
+        </div>
+
+        <textarea id="message" placeholder="Your Review"></textarea>
+
+        <button onclick="addTestimonial()">Submit Review</button>
+    </div>
+
+    <!-- REVIEWS -->
+    <div id="reviews" class="testimonials"></div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <h2>Contact Us</h2>
+    <p style="text-align:center;">
+        <strong>PH Painters & Handymen Services</strong><br>
+        Owner: Pepu<br>
+        Phone/WhatsApp: +27642919982<br>
+        Service Areas: Cape Town & Surroundings
+    </p>
+</section>
+
+<footer>
+    © 2026 PH Painters & Handymen Services
+</footer>
+
+<!-- JAVASCRIPT -->
+<script>
+let currentRating = 0;
+
+function setRating(rating){
+    currentRating = rating;
+
+    let stars = document.querySelectorAll(".star");
+
+    stars.forEach((star, index) => {
+        if(index < rating){
+            star.classList.add("selected");
+        } else {
+            star.classList.remove("selected");
+        }
+    });
+}
+
+function loadReviews(){
+    let data = JSON.parse(localStorage.getItem("reviews")) || [];
+    let box = document.getElementById("reviews");
+
+    box.innerHTML = "";
+
+    data.forEach(r => {
+
+        let stars = "★".repeat(r.rating) + "☆".repeat(5 - r.rating);
+
+        box.innerHTML += `
+        <div class="card">
+            <div style="color:#ff9800;font-size:18px;">${stars}</div>
+            “${r.message}”
+            <br><strong>- ${r.name}</strong>
+        </div>`;
+    });
+}
+
+function addTestimonial(){
+    let name = document.getElementById("name").value;
+    let message = document.getElementById("message").value;
+
+    if(!name || !message){
+        alert("Please fill in all fields");
+        return;
+    }
+
+    if(currentRating === 0){
+        alert("Please select a star rating");
+        return;
+    }
+
+    let data = JSON.parse(localStorage.getItem("reviews")) || [];
+
+    data.push({
+        name: name,
+        message: message,
+        rating: currentRating
+    });
+
+    localStorage.setItem("reviews", JSON.stringify(data));
+
+    document.getElementById("name").value = "";
+    document.getElementById("message").value = "";
+
+    currentRating = 0;
+    document.querySelectorAll(".star").forEach(s => s.classList.remove("selected"));
+
+    loadReviews();
+}
+
+loadReviews();
+</script>
+
+</body>
+</html>
