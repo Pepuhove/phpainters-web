@@ -1,442 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>PH Painters & Handyman Services Cape Town | Painting & Waterproofing</title>
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
-}
+<meta name="description" content="Professional painters in Cape Town. Interior painting, exterior painting, roof painting, waterproofing, gutter cleaning and handyman services. Free quotes available.">
+<meta name="keywords" content="painters Cape Town, painting services Cape Town, waterproofing Cape Town, handyman Cape Town, roof painting, exterior painting">
 
-body{
-    line-height:1.6;
-    color:#333;
-    background:#fff;
-}
-
-/* HERO */
-header{
-    background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-    url("images/pic1.jpeg");
-    background-size:cover;
-    background-position:center;
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    color:white;
-    padding:20px;
-}
-
-header h1{ font-size:40px; }
-header p{ margin:10px 0; font-size:18px; }
-
-.btn{
-    background:#ff9800;
-    color:white;
-    padding:12px 20px;
-    margin-top:15px;
-    text-decoration:none;
-    border-radius:5px;
-}
-
-/* SECTIONS */
-section{
-    padding:60px 20px;
-    max-width:1100px;
-    margin:auto;
-}
-
-h2{
-    text-align:center;
-    margin-bottom:20px;
-}
-
-/* SERVICES */
-.services{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:20px;
-}
-
-.card{
-    background:#f4f4f4;
-    padding:20px;
-    border-radius:10px;
-}
-
-/* GALLERY */
-.gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:15px;
-}
-
-.gallery img{
-    width:100%;
-    height:170px;
-    object-fit:cover;
-    border-radius:10px;
-}
-
-/* TESTIMONIALS */
-.testimonials{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-    margin-top:20px;
-}
-
-/* FORM */
-input, textarea{
-    width:100%;
-    padding:12px;
-    margin:8px 0;
-    border:1px solid #ccc;
-    border-radius:5px;
-}
-
-button{
-    background:#ff9800;
-    color:white;
-    border:none;
-    padding:12px 20px;
-    cursor:pointer;
-    border-radius:5px;
-}
-
-/* STAR RATING */
-.star{
-    font-size:28px;
-    cursor:pointer;
-    color:#ccc;
-    transition:0.2s;
-}
-
-.star.selected{
-    color:#ff9800;
-}
-
-/* FOOTER */
-footer{
-    background:#111;
-    color:white;
-    text-align:center;
-    padding:20px;
-    margin-top:40px;
-}
-
-/* FLOATING BUTTONS */
-.float-btn{
-    position:fixed;
-    width:60px;
-    height:60px;
-    right:20px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    box-shadow:0 4px 10px rgba(0,0,0,0.3);
-    z-index:1000;
-    transition:0.2s ease;
-    text-decoration:none;
-}
-
-/* WhatsApp */
-.whatsapp{
-    bottom:20px;
-    background:#25D366;
-}
-
-.whatsapp img{
-    width:35px;
-    height:35px;
-}
-
-/* Email */
-.email{
-    bottom:90px;
-    background:#ff9800;
-    color:white;
-    font-size:26px;
-    font-weight:bold;
-}
-
-/* Hover */
-.float-btn:hover{
-    transform:scale(1.15);
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- HERO -->
-<header>
-    <div style="max-width:900px;text-align:center;">
+<!-- NAV -->
+<header class="navbar">
+    <div class="logo">PH Painters</div>
 
-        <h1 style="font-size:48px;line-height:1.2;">
-            <span style="color:#ff9800;">PH Painters & Handyman Services</span>
-        <br>
-            <span style="color:#ff9800;">Cape Town</span>
-        </h1>
-
-        <p style="font-size:20px;margin-top:15px;color:#f1f1f1;">
-            Interior Painting • Exterior Painting • Roof Painting • Waterproofing • Wood Vanishing & Handyman Services
-        </p>
-
-        <p style="margin-top:15px;font-size:18px;color:#ddd;">
-            Specialists in <strong>luxury homes, coastal properties, apartments & commercial buildings</strong> with clean, long-lasting finishes.
-        </p>
-
-    </div>
+    <nav>
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#quote">Quote</a>
+        <a href="#contact">Contact</a>
+    </nav>
 </header>
 
-<script>
-function getData(){
-    return {
-        name: document.getElementById("name").value,
-        phone: document.getElementById("phone").value,
-        message: document.getElementById("message").value
-    };
-}
-
-function sendWhatsApp(){
-    let d = getData();
-    if(!d.name || !d.phone || !d.message){
-        alert("Please fill in all fields");
-        return;
-    }
-
-    let url = `https://wa.me/27642919982?text=
-Hi%20PH%20Painters,%0A
-My%20name:%20${d.name}%0A
-Phone:%20${d.phone}%0A
-Job:%20${d.message}`;
-
-    window.open(url, "_blank");
-}
-
-function callNow(){
-    let d = getData();
-    if(!d.phone){
-        alert("Please enter your phone number");
-        return;
-    }
-    window.location.href = "tel:+27642919982";
-}
-
-function sendEmail(){
-    let d = getData();
-    if(!d.message){
-        alert("Please enter your request");
-        return;
-    }
-
-    let subject = "Painting Quote Request - " + d.name;
-    let body = `Name: ${d.name}\nPhone: ${d.phone}\n\nMessage:\n${d.message}`;
-
-    window.location.href = `mailto:pepshove@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-}
-
-function sendSMS(){
-    let d = getData();
-    if(!d.message){
-        alert("Please enter your request");
-        return;
-    }
-
-    let smsBody = `Hi PH Painters, my name is ${d.name}. ${d.message}`;
-    window.location.href = `sms:+27642919982?body=${encodeURIComponent(smsBody)}`;
-}
-</script>
-
-<section id="quote">
-    <h2>Get a Free Quote</h2>
-
-    <p style="text-align:center;max-width:800px;margin:auto;">
-        Choose how you want us to contact you.
-    </p>
-
-    <div style="max-width:600px;margin:auto;margin-top:25px;">
-
-        <input type="text" id="name" placeholder="Your Name">
-        <input type="tel" id="phone" placeholder="Your Phone Number">
-
-        <textarea id="message" placeholder="Describe your painting or waterproofing job"></textarea>
-
-        <h3 style="text-align:center;margin-top:20px;">Preferred Contact Method</h3>
-
-        <div style="display:grid;gap:10px;margin-top:15px;">
-
-            <!-- WhatsApp -->
-            <button onclick="sendWhatsApp()" style="background:#25D366;color:white;padding:12px;border:none;border-radius:6px;">
-                📱 WhatsApp Me
-            </button>
-
-            <!-- Call -->
-            <button onclick="callNow()" style="background:#007bff;color:white;padding:12px;border:none;border-radius:6px;">
-                📞 Call Me
-            </button>
-
-            <!-- Email -->
-            <button onclick="sendEmail()" style="background:#ff9800;color:white;padding:12px;border:none;border-radius:6px;">
-                ✉ Email Me
-            </button>
-
-            <!-- SMS -->
-            <button onclick="sendSMS()" style="background:#444;color:white;padding:12px;border:none;border-radius:6px;">
-                💬 Send SMS
-            </button>
-
-        </div>
-
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>PH Painters & Handyman Services</h1>
+        <p>Interior • Exterior • Roof Painting • Waterproofing • Cape Town</p>
+        <a href="#quote" class="btn-primary">Get Free Quote</a>
     </div>
 </section>
 
 <!-- ABOUT -->
-<section>
-    <h2>Trusted Painters & Waterproofing Specialists in Cape Town</h2>
-
-    <p style="text-align:center;max-width:900px;margin:auto;">
-        PH Painters & Handyman Services provides professional interior painting,
-        exterior painting, roof painting, roof waterproofing, damp proofing,
-        wood varnishing and handyman services throughout Cape Town.
-
-        We work on houses, apartments, offices, restaurants, hotels,
-        body corporates and commercial properties.
-
-        Whether you need affordable house painters, waterproofing contractors,
-        roof leak repairs or complete property maintenance, we deliver
-        quality workmanship, reliable service and long-lasting results.
+<section class="section">
+    <h2>Trusted Painters in Cape Town</h2>
+    <p class="center">
+        We deliver high-quality painting, waterproofing and handyman services across Cape Town.
+        Reliable, affordable and professional workmanship for homes, apartments and commercial properties.
     </p>
 </section>
 
 <!-- SERVICES -->
-<section>
-    <h2>Our Painting & Waterproofing Services</h2>
+<section id="services" class="section">
+    <h2>Our Services</h2>
 
-    <div class="services">
+    <div class="grid">
 
-        <div class="card">
-            <h3>Interior Painting</h3>
-            <p>
-                Professional wall painting, ceiling painting,
-                apartment painting and home painting services.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Exterior Painting</h3>
-            <p>
-                Exterior house painting, boundary walls,
-                commercial buildings and property renovations.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Roof Painting</h3>
-            <p>
-                Roof cleaning, roof painting and roof restoration
-                services throughout Cape Town.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Waterproofing</h3>
-            <p>
-                Roof waterproofing, balcony waterproofing,
-                leak repairs and damp proofing solutions.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Wood Varnishing</h3>
-            <p>
-                Wood treatment, staining and varnishing
-                for doors, decks and wooden surfaces.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Handyman Services</h3>
-            <p>
-                Property maintenance, repairs,
-                installations and general handyman work.
-            </p>
-        </div>
+        <div class="card"><h3>Interior Painting</h3><p>Clean, modern interior finishes for homes and offices.</p></div>
+        <div class="card"><h3>Exterior Painting</h3><p>Weather-resistant painting for Cape Town conditions.</p></div>
+        <div class="card"><h3>Roof Painting</h3><p>Protect and restore roofs with durable coatings.</p></div>
+        <div class="card"><h3>Waterproofing</h3><p>Leak repairs and long-term waterproof protection.</p></div>
+        <div class="card"><h3>Wood Varnishing</h3><p>Protect and beautify wood surfaces and decks.</p></div>
+        <div class="card"><h3>Handyman Services</h3><p>Repairs, installations and general maintenance.</p></div>
+        <div class="card"><h3>Gutter Cleaning</h3><p>Prevent blockages and water damage.</p></div>
+        <div class="card"><h3>Gutter Installation</h3><p>Professional rainwater drainage systems.</p></div>
 
     </div>
 </section>
-
-<!-- AREAS -->
-<section>
-    <h2>Areas We Service</h2>
-
-    <p style="text-align:center;max-width:900px;margin:auto;">
-        We provide painting, waterproofing and handyman services in
-        Sea Point, Green Point, Camps Bay, Clifton, Gardens,
-        Woodstock, Observatory, Pinelands, Milnerton,
-        Table View, Parklands, Century City, Bellville,
-        Durbanville, Brackenfell, Goodwood, Parow,
-        Kraaifontein and surrounding Cape Town areas.
-    </p>
-</section>
-
-<!-- WHY CHOOSE US -->
-<section>
-    <h2>Why Choose PH Painters?</h2>
-
-    <div class="services">
-
-        <div class="card">
-            <h3>Free Quotes</h3>
-            <p>Fast and competitive quotations.</p>
-        </div>
-
-        <div class="card">
-            <h3>Quality Workmanship</h3>
-            <p>Attention to detail and professional finishes.</p>
-        </div>
-
-        <div class="card">
-            <h3>Reliable Service</h3>
-            <p>On-time completion and customer satisfaction.</p>
-        </div>
-
-        <div class="card">
-            <h3>Affordable Prices</h3>
-            <p>Competitive painting and waterproofing rates.</p>
-        </div>
-
-    </div>
-</section>
-
 
 <!-- GALLERY -->
-<section>
-    <h2>Our Work Gallery</h2>
+<section id="gallery" class="section">
+    <h2>Our Work</h2>
+
+    <h3>Interior Painting</h3>
     <div class="gallery">
         <img src="images/pic1.jpeg">
-        <img src="images/pic2.jpeg">
-        <img src="images/pic3.jpeg">
-        <img src="images/pic4.jpeg">
-        <img src="images/pic5.jpeg">
-        <img src="images/pic6.jpeg">
         <img src="images/pic7.jpeg">
         <img src="images/pic8.jpeg">
-        <img src="images/pic9.jpeg">
         <img src="images/pic10.jpeg">
-        <img src="images/pic11.jpeg">
-        <img src="images/pic12.jpeg">
-        <img src="images/pic13.jpeg">
         <img src="images/pic14.jpg">
         <img src="images/pic15.webp">
         <img src="images/pic16.webp">
@@ -444,170 +79,70 @@ function sendSMS(){
         <img src="images/pic18.webp">
         <img src="images/pic19.webp">
         <img src="images/pic20.jpg">
+        <img scr="images/img1.jpg">
+        <img scr="images/img3.jpg">
+        <img scr="images/img4.jpg">
+        <img scr="images/img5.jpg">
+        <img scr="images/img7.jpg">
+        <img scr="images/img8.jpg">
+        <img scr="images/img11.jpg">
+        <img scr="images/img13.jpg">
+        <img scr="images/img14.jpg">
+        <img scr="images/img15.jpg">
+        <img scr="images/img16.jpg">
+        <img scr="images/img19.jpg">
+
+    </div>
+
+    <h3>Exterior Painting</h3>
+    <div class="gallery">
+        <img src="images/pic2.jpeg">
+        <img src="images/pic3.jpeg">
+        <img src="images/pic4.jpeg">
+        <img src="images/pic5.jpeg">
+        <img src="images/pic6.jpeg">
+        <img src="images/pic9.jpeg">
+        <img src="images/pic13.jpeg">
+    </div>
+
+    <h3>Waterproofing</h3>
+    <div class="gallery">
+        <img src="images/pic11.jpeg">
+        <img src="images/pic12.jpeg">
     </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section>
-    <h2>Customer Testimonials</h2>
+<!-- QUOTE -->
+<section id="quote" class="section">
+    <h2>Get Free Quote</h2>
 
-    <p style="text-align:center;">Leave a review below.</p>
-
-    <div style="max-width:600px;margin:auto;">
+    <div class="form">
         <input id="name" type="text" placeholder="Your Name">
+        <input id="phone" type="tel" placeholder="Phone Number">
+        <textarea id="message" placeholder="Describe your job"></textarea>
 
-        <div style="text-align:center;margin:10px 0;">
-            <span onclick="setRating(1)" class="star">★</span>
-            <span onclick="setRating(2)" class="star">★</span>
-            <span onclick="setRating(3)" class="star">★</span>
-            <span onclick="setRating(4)" class="star">★</span>
-            <span onclick="setRating(5)" class="star">★</span>
-        </div>
-
-        <textarea id="message" placeholder="Your Review"></textarea>
-
-        <button onclick="addTestimonial()">Submit Review</button>
-    </div>
-
-    <div id="reviews" class="testimonials"></div>
-</section>
-
-<!-- GOOGLE MAPS + SERVICE AREAS -->
-<section>
-    <h2>Trusted Painters in Sea Point, Camps Bay & Cape Town</h2>
-
-    <p style="text-align:center;max-width:900px;margin:auto;margin-bottom:25px;">
-        PH Painters & Handyman Services proudly serves premium Cape Town suburbs including
-        <strong>Sea Point, Camps Bay, Clifton, Green Point, Bantry Bay, Fresnaye, and the Atlantic Seaboard</strong>.
-        We specialise in high-quality interior painting, exterior painting, roof painting, and waterproofing for luxury homes, apartments, and commercial properties.
-    </p>
-
-    <div style="display:flex;justify-content:center;">
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3309.0861!2d18.4241!3d-33.9249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc676c9f3f3a3b%3A0x2a0c7c5b0f0c0c0!2sCape%20Town!5e0!3m2!1sen!2sza!4v1710000000000"
-            width="100%"
-            height="380"
-            style="border:0;border-radius:12px;box-shadow:0 10px 25px rgba(0,0,0,0.25);"
-            allowfullscreen=""
-            loading="lazy">
-        </iframe>
-    </div>
-
-    <div style="margin-top:25px;text-align:center;">
-        <p style="font-size:16px;">
-            📍 <strong>Top Service Areas:</strong><br>
-            Sea Point • Camps Bay • Clifton • Green Point • Bantry Bay • Fresnaye • Woodstock • Observatory • Milnerton
-        </p>
+        <button class="btn whatsapp" onclick="sendWhatsApp()">WhatsApp</button>
+        <button class="btn call" onclick="callNow()">Call</button>
+        <button class="btn email" onclick="sendEmail()">Email</button>
+        <button class="btn sms" onclick="sendSMS()">SMS</button>
     </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
-    <h2>Contact PH Painters & Handyman Services</h2>
+<section id="contact" class="section">
+    <h2>Contact Us</h2>
 
-    <p style="text-align:center;">
-        <strong>Owner: Pepu</strong><br><br>
-
-        📞 Phone:
-        <a href="tel:+27642919982">+27 64 291 9982</a>
-        <br><br>
-
-        💬 WhatsApp:
-        <a href="https://wa.me/27642919982">
-            Chat With Us
-        </a>
-        <br><br>
-
-        ✉ Email:
-        <a href="mailto:pepshove@gmail.com">
-            pepshove@gmail.com
-        </a>
-        <br><br>
-
-
+    <p class="center">
+        📞 +27 64 291 9982<br>
+        ✉ pepshove@gmail.com<br>
+        📍 Cape Town
     </p>
 </section>
 
 <footer>
-    © 2026 PH Painters & Handymen Services
+    © 2026 PH Painters & Handyman Services
 </footer>
 
-<!-- FLOATING BUTTONS -->
-
-<!-- WhatsApp -->
-<a href="https://wa.me/27642919982?text=Hi%20PH%20Painters%2C%20I%20would%20like%20a%20quote%20please"
-class="float-btn whatsapp" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
-</a>
-
-<!-- Email -->
-<a href="mailto:pepshove@gmail.com?subject=Painting%20Quote%20Request&body=Hi%20PH%20Painters%2C%20I%20would%20like%20a%20quote"
-class="float-btn email">
-    ✉
-</a>
-
-<!-- JAVASCRIPT -->
-<script>
-let currentRating = 0;
-
-function setRating(rating){
-    currentRating = rating;
-
-    document.querySelectorAll(".star").forEach((star, i) => {
-        star.classList.toggle("selected", i < rating);
-    });
-}
-
-function loadReviews(){
-    let data = JSON.parse(localStorage.getItem("reviews")) || [];
-    let box = document.getElementById("reviews");
-
-    box.innerHTML = "";
-
-    data.forEach(r => {
-        let stars = "★".repeat(r.rating) + "☆".repeat(5 - r.rating);
-
-        box.innerHTML += `
-        <div class="card">
-            <div style="color:#ff9800;font-size:18px;">${stars}</div>
-            “${r.message}”
-            <br><strong>- ${r.name}</strong>
-        </div>`;
-    });
-}
-
-function addTestimonial(){
-    let name = document.getElementById("name").value;
-    let message = document.getElementById("message").value;
-
-    if(!name || !message){
-        alert("Please fill all fields");
-        return;
-    }
-
-    if(currentRating === 0){
-        alert("Please select rating");
-        return;
-    }
-
-    let data = JSON.parse(localStorage.getItem("reviews")) || [];
-
-    data.push({ name, message, rating: currentRating });
-
-    localStorage.setItem("reviews", JSON.stringify(data));
-
-    document.getElementById("name").value = "";
-    document.getElementById("message").value = "";
-    currentRating = 0;
-
-    document.querySelectorAll(".star").forEach(s => s.classList.remove("selected"));
-
-    loadReviews();
-}
-
-loadReviews();
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
-
